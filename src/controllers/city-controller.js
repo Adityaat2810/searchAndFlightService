@@ -1,7 +1,7 @@
 const { response } = require('express');
 const cityService = require('../services/city-service')
 
-const cityService = new cityService();
+const CityService = new cityService();
 
 /**
  *POST
@@ -11,7 +11,7 @@ const cityService = new cityService();
 const create = async (req ,res) =>{
 
     try{
-         const city = await cityService.createCity(req.body);
+         const city = await CityService.createCity(req.body);
          return res.status(201).json({
             data:city ,
             success:true ,
@@ -20,7 +20,7 @@ const create = async (req ,res) =>{
          })
 
     }catch(error){
-        console.log(err)
+        console.log(error)
         return res.status(500).json({
             data:{},
             success:false,
@@ -36,7 +36,7 @@ const create = async (req ,res) =>{
 const destroy = async (req,res)=>{
     try{
 
-        const city = await cityService.deleteCity(req.params.id);
+        const city = await CityService.deleteCity(req.params.id);
         return res.status(200).json({
            data:response ,
            success:true ,
@@ -44,8 +44,8 @@ const destroy = async (req,res)=>{
            err:{}
         })
 
-    }catch(err){
-        console.log(err)
+    }catch(error){
+        console.log(error)
         return res.status(500).json({
             data:{},
             success:false,
@@ -61,7 +61,7 @@ const destroy = async (req,res)=>{
 const get = async (req,res) =>{
     try{
 
-        const city = await cityService.getCity(req.params.id);
+        const city = await CityService.getCity(req.params.id);
         return res.status(200).json({
            data:response ,
            success:true ,
@@ -69,8 +69,8 @@ const get = async (req,res) =>{
            err:{}
         })
 
-    }catch(err){
-        console.log(err)
+    }catch(error){
+        console.log(error)
         return res.status(500).json({
             data:{},
             success:false,
@@ -87,7 +87,7 @@ const update =async (req,res) =>{
     try{
 
 
-        const city = await cityService.updateCity(req.params.id, req.body);
+        const city = await CityService.updateCity(req.params.id, req.body);
         return res.status(200).json({
            data:response ,
            success:true ,
@@ -95,8 +95,8 @@ const update =async (req,res) =>{
            err:{}
         })
 
-    }catch(err){
-        console.log(err)
+    }catch(error){
+        console.log(error)
         return res.status(500).json({
             data:{},
             success:false,
