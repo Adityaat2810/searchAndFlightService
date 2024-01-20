@@ -5,7 +5,7 @@ class CityService{
     constructor(){
         this.CityRepository = new CityRepository();
     } 
-    async  createCity(data){
+    async createCity(data){
         try{
             const city  = await this.CityRepository.createCity(data)
 
@@ -54,10 +54,10 @@ class CityService{
 
     }
 
-    async getAllCities(){
+    async getAllCities(filter){
         try{
 
-            const cities = await this.CityRepository.getAllCities();
+            const cities = await this.CityRepository.getAllCities(filter);
             return cities;
 
         }catch(error){

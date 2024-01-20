@@ -1,4 +1,4 @@
-
+const {Op} = require('sequelize')
 const { City } = require('../models/index');
 //index can return all the files in the models folder
 class CityRepository{
@@ -6,6 +6,7 @@ class CityRepository{
    async createCity({ name  }){
     try{
 
+        console.log(name);  
         const city = await City.create({
             // model property name: name that has been passed
             name:name
@@ -77,8 +78,21 @@ class CityRepository{
 
    }
 
-   async getAllCities(){
+   async getAllCities(filter){ // filter can be empty also
     try{
+        
+        console.log(filter)
+
+        if (filter.name) {
+            const cities = await City.findAll({
+                where: {
+                    name: {
+                        [Op.startsWith]: filter.name,
+                    }
+                }
+            })
+            return cities;
+        }
 
         const cities = await City.findAll();
         return cities;
