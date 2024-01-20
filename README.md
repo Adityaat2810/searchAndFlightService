@@ -36,5 +36,11 @@ and then execute
   - One airport can have many flights ,but a flight belong to one airport 
 
 
+## Tables
+### City-> id , name ,created_at, updated_at
+### Airport-> id ,name , adress ,city_id , created_at , updated_at
+  Relationship-> city has many airport and Airport belongs to city .(one to many relation)
+  many stores one column about one means airport has one collumn about city .
+  
 
     
