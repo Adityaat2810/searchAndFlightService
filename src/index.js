@@ -18,6 +18,25 @@ const setpupAndStartServer = async () =>{
         console.log(`Server is started at ${PORT}`);
        
     })
+
+    
+   /*
+    if(process.env.SYNC_DB){
+        db.sequelize.sync({alter:true}); // we need to sync just one time whenever you do one association
+    }
+    const city = await City.findOne({
+        where:{
+            id:9
+        }
+
+    });
+
+    // powerful thinf 
+    const airports = await city.getAirports();
+    // many functions linke getAitrports(),setAirports(),addAirports(); etc
+   
+   */
+
 }
 
 setpupAndStartServer();

@@ -41,6 +41,9 @@ and then execute
 ### Airport-> id ,name , adress ,city_id , created_at , updated_at
   Relationship-> city has many airport and Airport belongs to city .(one to many relation)
   many stores one column about one means airport has one collumn about city .
-  
+
+```
+npx squelize model:generte --name Airport --attributes name:String , address:String, cityId:integer
+```
 
     
